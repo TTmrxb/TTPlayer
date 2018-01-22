@@ -1,2 +1,2 @@
 # TTPlayer
-An iOS Player based on AVFoundation
+###基于AVFoundation开发的视频播放器
