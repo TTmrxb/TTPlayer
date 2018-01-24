@@ -182,6 +182,20 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		E59AE53B201814FD00A8179E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E59AE53C2018150200A8179E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E5ADCAAD1FEBB4BD00494442 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +210,8 @@
 		E5CFF7921FEA46B200853AAA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E59AE53C2018150200A8179E /* Model */,
+				E59AE53B201814FD00A8179E /* View */,
 				E5CFF7931FEA46BD00853AAA /* Controller */,
 			);
 			path = Home;
