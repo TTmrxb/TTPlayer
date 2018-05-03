@@ -57,7 +57,8 @@ static CGFloat const kHudDuration = 2.0;    //kHudDuration 秒后hud隐藏
                             cancelTitle:cancelTitle
                        destructiveTitle:destructiveTitle
                           defaultTitles:defaultTitles
-                               tapBlock:(AlertCompletionBlock)tapBlock];
+                    popoverResourceView:nil
+                               tapBlock:tapBlock];
 }
 
 - (void)showAlertSheetInController:(UIViewController *)controller
@@ -65,7 +66,8 @@ static CGFloat const kHudDuration = 2.0;    //kHudDuration 秒后hud隐藏
                            message:(NSString *)message
                        cancelTitle:(NSString *)cancelTitle
                   destructiveTitle:(NSString *)destructiveTitle
-                     defaultTitles:(NSArray<NSString *> *)defaultTitles
+                     defaultTitles:(NSArray <NSString *>*)defaultTitles
+               popoverResourceView:(UIView *)sourceView
                           tapBlock:(AlertCompletionBlock)tapBlock {
     
     [self showAlertControllInController:controller
@@ -75,7 +77,8 @@ static CGFloat const kHudDuration = 2.0;    //kHudDuration 秒后hud隐藏
                             cancelTitle:cancelTitle
                        destructiveTitle:destructiveTitle
                           defaultTitles:defaultTitles
-                               tapBlock:(AlertCompletionBlock)tapBlock];
+                    popoverResourceView:sourceView
+                               tapBlock:tapBlock];
 }
 
 - (void)showAlertControllInController:(UIViewController *)controller
@@ -85,7 +88,8 @@ static CGFloat const kHudDuration = 2.0;    //kHudDuration 秒后hud隐藏
                           cancelTitle:(NSString *)cancelTitle
                      destructiveTitle:(NSString *)destructiveTitle
                         defaultTitles:(NSArray *)defaultTitles
-                             tapBlock:(AlertCompletionBlock _Nullable)tapBlock
+                  popoverResourceView:(UIView *)sourceView
+                             tapBlock:(AlertCompletionBlock )tapBlock
 {
     [self dismissAnimated:NO];
     
@@ -128,6 +132,16 @@ static CGFloat const kHudDuration = 2.0;    //kHudDuration 秒后hud隐藏
                                          }
                                      }];
             [self.alert addAction:action];
+        }
+    }
+    
+    if (sourceView) {
+        UIPopoverPresentationController *popover = self.alert.popoverPresentationController;
+        
+        if (popover) {
+            popover.sourceView = sourceView;
+            popover.sourceRect = sourceView.bounds;
+            popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
         }
     }
     

@@ -37,6 +37,7 @@ typedef void(^AlertCompletionBlock)(UIAlertAction * _Nonnull action, NSInteger b
                        cancelTitle:(NSString *_Nullable)cancelTitle
                   destructiveTitle:(NSString *_Nullable)destructiveTitle
                      defaultTitles:(NSArray <NSString *>*_Nullable)defaultTitles
+               popoverResourceView:(UIView *_Nullable)sourceView
                           tapBlock:(AlertCompletionBlock _Nullable)tapBlock;
 
 #pragma mark - Hud
